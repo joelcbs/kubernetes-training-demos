@@ -1,0 +1,19 @@
+apiVersion: apps/v1               
+kind: Deployment
+metadata: 
+ name: deploy-recreate 
+spec:     
+ strategy:      
+  type: Recreate
+ replicas: 6    
+ selector:
+  matchLabels:  
+   app: linuxL 
+ template:
+  metadata:     
+   labels:
+      app: linux  
+  spec:   
+   containers:  
+   - name: test  
+     image: quay.io/shruti1988/production:v1
